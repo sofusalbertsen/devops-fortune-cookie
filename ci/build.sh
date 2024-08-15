@@ -1,0 +1,5 @@
+cd backend/
+go build
+
+cd ../frontend
+go build 
