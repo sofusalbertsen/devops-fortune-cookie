@@ -16,6 +16,6 @@ jobs:
   call-docker-build-push:
     uses: ./.github/workflows/docker-build-push.yaml
     
-  test:
+  call-test:
     uses: ./.github/workflows/test.yaml
     
