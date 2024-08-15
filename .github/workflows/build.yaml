@@ -1,0 +1,19 @@
+name: build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-upload-artifact:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download repository
+      uses: actions/checkout@v4
+    - name: Building Frontend & Backend
+      run: bash ci/build.sh
+    - name: Upload Repository
+      uses: actions/upload-artifact@v4
+      with:
+        name: code
+        path: .
+    
