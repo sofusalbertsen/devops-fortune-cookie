@@ -1,0 +1,14 @@
+name: test
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Upload Repository
+      uses: actions/checkout@v4
+    - name: Running Unit Tests
+      run: bash ci/test.sh
+    

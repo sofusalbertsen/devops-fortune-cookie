@@ -4,44 +4,20 @@ on:
   pull_request:
     branches:
     - main
-
   workflow_dispatch:
 
 env:
   docker_username: gibbus2
   docker_password: ${{ secrets.GITHUB_TOKEN }}  
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download repository
-      uses: actions/checkout@v4
-    - name: Building Frontend & Backend
-      run: bash ci/build.sh
-    - name: Upload Repository
-      uses: actions/upload-artifact@v4
-      with:
-        name: code
-        path: .
+  call-build:
+    uses: ./.github/workflows/build.yaml
 
-  Docker-image:
-    runs-on: ubuntu-latest
+  call-docker-build-push:
     permissions:
-      packages: write
-    steps:
-    - name: Download repository
-      uses: actions/checkout@v4
-    - name: build docker
-      run: bash ci/build-docker.sh
-    - name: push docker
-      run: bash ci/push-docker.sh
+        packages: write
+    uses: ./.github/workflows/docker-build-push.yaml
     
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Upload Repository
-      uses: actions/checkout@v4
-    - name: Running Unit Tests
-      run: bash ci/test.sh
+  call-test:
+    uses: ./.github/workflows/test.yaml
     
