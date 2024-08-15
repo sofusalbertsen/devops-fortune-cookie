@@ -1,17 +1,10 @@
-FROM golang:1.23 AS builder
-
+FROM golang:1.23.0-alpine3.20 AS builder
 WORKDIR /app
-
-COPY  . ./
-
+COPY . /app
 RUN go build
 
 FROM scratch
-
 WORKDIR /app
-
-COPY --from=builder /app/frontend .
-
+COPY --from=builder /app/frontend /app/
 EXPOSE 8080
-
-ENTRYPOINT [ "./frontend" ]
+ENTRYPOINT ["./frontend"]
