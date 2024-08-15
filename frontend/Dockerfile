@@ -7,4 +7,5 @@ FROM scratch
 WORKDIR /app
 COPY --from=builder /app/frontend /app/
 EXPOSE 8080
+ENV BACKEND_DNS = "backend"
 ENTRYPOINT ["./frontend"]
