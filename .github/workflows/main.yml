@@ -24,7 +24,7 @@ jobs:
         name: code
         path: .
 
-  Docker-image:
+  docker-image-build-push:
     runs-on: ubuntu-latest
     permissions:
       packages: write
