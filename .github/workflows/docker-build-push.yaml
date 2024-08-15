@@ -9,8 +9,6 @@ env:
 jobs:
   docker-build-push:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
     steps:
     - name: Download repository
       uses: actions/checkout@v4
