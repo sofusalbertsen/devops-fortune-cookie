@@ -13,5 +13,5 @@ jobs:
           name: code
           path: .
       - name: Deploying
-        run: bash cd/deploy.sh --${{ secrets.KUBECONFIG }}
+        run: bash cd/deploy.sh ${{ secrets.KUBECONFIG }}
   
