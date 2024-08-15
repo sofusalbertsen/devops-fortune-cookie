@@ -13,5 +13,5 @@ jobs:
           name: code
           path: .
       - run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
-      - run: kubectl --kubeconfig kubeconfig apply -f ./k8s/
+      - run: kubectl --kubeconfig=kubeconfig apply -f ./k8s/
   
