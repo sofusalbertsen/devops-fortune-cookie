@@ -7,6 +7,9 @@ on:
 
   workflow_dispatch:
 
+env:
+  docker_username: gibbus2
+  docker_password: ${{ secrets.GITHUB_TOKEN }}  
 jobs:
   build:
     runs-on: ubuntu-latest
