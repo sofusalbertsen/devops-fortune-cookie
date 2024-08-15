@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  docker_username: gibbus2
+  docker_username: ckstools
   docker_password: ${{ secrets.GITHUB_TOKEN }}  
 jobs:
   build:
