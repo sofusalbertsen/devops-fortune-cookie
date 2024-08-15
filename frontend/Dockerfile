@@ -6,7 +6,6 @@ RUN go build
 FROM scratch
 WORKDIR /app
 COPY --from=builder /app/frontend /app/
-COPY --from=builder /app/templates /app/templates
-COPY --from=builder /app/static /app/static
 EXPOSE 8080
+ENV BACKEND_DNS = "backend"
 ENTRYPOINT ["./frontend"]
