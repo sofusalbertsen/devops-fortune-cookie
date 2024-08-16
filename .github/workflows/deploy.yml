@@ -16,6 +16,8 @@ jobs:
         run: mkdir -p $HOME/.kube
       - name: Set up Kubeconfig
         run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
+      - name: Check Kubernetes cluster info
+        run: kubectl cluster-info
       - name: Apply Kubernetes manifests
         run: kubectl apply -f ./k8s/
   
